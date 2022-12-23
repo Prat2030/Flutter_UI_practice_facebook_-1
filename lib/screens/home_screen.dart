@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:facebook_ui_practice/widgets/circle_button.dart';
+import 'package:facebook_ui_practice/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../config/palette.dart';
+import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,6 +38,12 @@ class HomeScreen extends StatelessWidget {
                   iconSize: 30.0,
                   onPressed: () => print('Messenger')),
             ],
+          ),
+          SliverToBoxAdapter(
+            // SliverPadding,Sliverlists,SliverGrids can also be used
+            child: CreatePostContainer(
+              currentUser: currentUser,
+            ),
           ),
         ],
       ),
