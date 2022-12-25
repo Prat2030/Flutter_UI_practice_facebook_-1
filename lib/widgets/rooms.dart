@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/user_model.dart';
 import '../config/palette.dart';
+import './widgets.dart';
 
 class Rooms extends StatelessWidget {
   const Rooms({
@@ -30,6 +31,10 @@ class Rooms extends StatelessWidget {
           final User user = onlineUsers[index - 1];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: ProfileAvatar(
+              imageUrl: user.imageUrl,
+              isActive: true,
+            ),
           );
         },
       ),
