@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:facebook_ui_practice/config/palette.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAvatar extends StatelessWidget {
@@ -7,9 +8,11 @@ class ProfileAvatar extends StatelessWidget {
     Key? key,
     required this.imageUrl,
     this.isActive = false,
+    this.hasBorder = false,
   }) : super(key: key);
   final String imageUrl;
   final bool isActive;
+  final bool hasBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +20,12 @@ class ProfileAvatar extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 20.0,
-          backgroundColor: Colors.grey[200],
-          backgroundImage: CachedNetworkImageProvider(imageUrl),
+          backgroundColor: Palette.facebookBlue,
+          child: CircleAvatar(
+            radius: hasBorder ? 17.0 : 20.0,
+            backgroundColor: Colors.grey[200],
+            backgroundImage: CachedNetworkImageProvider(imageUrl),
+          ),
         ),
         isActive
             ? Positioned(
